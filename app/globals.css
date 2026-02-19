@@ -11,17 +11,71 @@
   --tactech-accent: #8454DE;
   --tactech-light: #D2C1EE;
   --tactech-mint: #72E6AD;
+  --font-lato: "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
+/* Base typography */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-lato);
+  font-weight: 300; /* Lato Light */
   -webkit-font-smoothing: antialiased;
+}
+
+/* Paragraphs → Lato Light */
+p {
+  font-family: var(--font-lato);
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+/* Headings → Lato Bold (h2, h3, h4) and Lato Black (h1) */
+h1 {
+  font-family: var(--font-lato);
+  font-weight: 900; /* Lato Black / Superbold */
+  line-height: 1.1;
+}
+
+h2 {
+  font-family: var(--font-lato);
+  font-weight: 700; /* Lato Bold */
+  line-height: 1.2;
+}
+
+h3, h4, h5, h6 {
+  font-family: var(--font-lato);
+  font-weight: 700; /* Lato Bold */
+  line-height: 1.3;
+}
+
+/* Labels, buttons, badges → Bold */
+label,
+button,
+.font-semibold,
+.font-bold,
+.font-medium {
+  font-family: var(--font-lato);
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
+  }
+
+  /* Utility classes for Lato weights */
+  .lato-light {
+    font-family: var(--font-lato);
+    font-weight: 300;
+  }
+
+  .lato-bold {
+    font-family: var(--font-lato);
+    font-weight: 700;
+  }
+
+  .lato-black {
+    font-family: var(--font-lato);
+    font-weight: 900;
   }
 }
