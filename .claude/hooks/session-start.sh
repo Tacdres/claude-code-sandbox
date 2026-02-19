@@ -6,6 +6,15 @@ if [ "${CLAUDE_CODE_REMOTE:-}" != "true" ]; then
   exit 0
 fi
 
-echo "Session start hook running..."
-echo "Project dir: ${CLAUDE_PROJECT_DIR:-$(pwd)}"
-echo "Session start hook complete."
+echo '{"async": true, "asyncTimeout": 300000}'
+
+echo "Installing dependencies..."
+npm install
+
+echo "Generating Prisma client..."
+npx prisma generate
+
+echo "Pushing database schema..."
+npx prisma db push
+
+echo "Session setup complete."

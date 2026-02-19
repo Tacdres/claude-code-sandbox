@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model User {
+  id        String   @id @default(cuid())
+  username  String   @unique
+  password  String
+  createdAt DateTime @default(now())
+}
+
+model Proposal {
+  id               String   @id @default(cuid())
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+
+  clientName       String
+  proposalName     String
+  presentationDate DateTime
+  valueCLP         Int
+  validityDays     Int
+  details          String   @default("")
+  sentBy           String
+  sentTo           String
+  status           String   @default("draft")
+
+  confirmationSteps String @default("[]")
+  timeline          String @default("[]")
+  price             String @default("[]")
+  team              String @default("[]")
+
+  introduction String @default("")
+  context      String @default("")
+  objective    String @default("")
+  whyTactech   String @default("")
+}
